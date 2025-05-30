@@ -5,7 +5,10 @@ nixPkgs = [
 ]
 
 [phases.install]
-cmds = ["playwright install chromium"]
+cmds = [
+  "pip install --no-cache-dir -r requirements.txt",
+  "playwright install chromium"
+]
 
 [start]
 cmd = "python app.py"
