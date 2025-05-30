@@ -2,6 +2,12 @@ from flask import Flask, request
 import os
 import requests
 
+# Chromium yüklemesi (ilk çalıştırmada yapılır)
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    p.chromium.launch(headless=True).close()
+
 app = Flask(__name__)
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
