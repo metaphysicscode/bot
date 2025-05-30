@@ -6,10 +6,8 @@ nixPkgs = [
 [phases.install]
 cmds = [
   "npm install -g playwright",
-  "export PATH=$PATH:/root/.npm-global/bin",
-  "playwright install chromium",
   "pip install --break-system-packages -r requirements.txt"
 ]
 
 [start]
-cmd = "python app.py"
+cmd = "python install_browser.py && python app.py"
