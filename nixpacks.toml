@@ -4,7 +4,7 @@ nixPkgs = ["nodejs", "curl"]
 [phases.install]
 cmds = [
   "npm install -g playwright",
-  "playwright install chromium"
+  "/root/.npm-global/bin/playwright install chromium"
 ]
 
 [start]
