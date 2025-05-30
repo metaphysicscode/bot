@@ -1,10 +1,14 @@
 [phases.setup]
-nixPkgs = ["nodejs", "curl"]
+nixPkgs = [
+  "nodejs", "python311", "glib", "gtk3", "mesa", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "nss", "atk", "pango", "cairo", "alsa-lib"
+]
 
 [phases.install]
 cmds = [
   "npm install -g playwright",
-  "/root/.npm-global/bin/playwright install chromium"
+  "export PATH=$PATH:/root/.npm-global/bin",
+  "playwright install chromium",
+  "pip install --break-system-packages -r requirements.txt"
 ]
 
 [start]
